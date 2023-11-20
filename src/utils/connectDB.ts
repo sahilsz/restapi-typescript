@@ -1,15 +1,17 @@
-import mongoose from "mongoose";
 import config from "config";
+import mongoose from "mongoose";
+
+import log from "./logger";
 
 const dbURI = config.get<string>("dbURI");
 
 export default async function connectDb() {
   try {
     await mongoose.connect(dbURI);
-    console.log("Connected to db");
+    log.info("Connected to db");
   } catch (err) {
-    console.log("Someting Went Wrong!!!");
-    console.error(err);
+    log.info("Someting Went Wrong!!!");
+    log.error(err);
     process.exit(1);
   }
 }
