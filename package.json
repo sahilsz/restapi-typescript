@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "config": "^3.3.9",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3"
   },
   "devDependencies": {
     "@types/config": "^3.3.3",
