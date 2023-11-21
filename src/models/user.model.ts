@@ -3,12 +3,26 @@ import config from "config";
 import mongoose from "mongoose";
 
 // TypeScript defination
-export interface UserDocument extends mongoose.Document {
+// export interface UserDocument extends mongoose.Document {
+//   email: string;
+//   name: string;
+//   password: string;
+//   createdAt: Date;
+//   updatedAt: Date;
+// }
+
+// Type defination for User Input
+export interface UserInput {
   email: string;
   name: string;
   password: string;
+}
+
+//Type Definatino for user model
+export interface UserDocument extends UserInput, mongoose.Document {
   createdAt: Date;
   updatedAt: Date;
+  comparePassword(loginPassword: string): Promise<boolean>;
 }
 
 const userSchema = new mongoose.Schema(
