@@ -14,6 +14,8 @@ const validate =
         query: req.query,
         params: req.params,
       });
+
+      next();
     } catch (err: any) {
       log.error(err);
       return res.status(400).send(err.errors);
