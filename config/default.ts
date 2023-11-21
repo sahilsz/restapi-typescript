@@ -1,5 +1,5 @@
 export default {
   port: 1337,
-  dbURI: "mongodb://localhost:27017/rest",
-  saltWorkFactor: "10",
+  dbURI: "mongodb://admin:admin@localhost:27017/rest?authsource=admin",
+  saltWorkFactor: 10,
 };
