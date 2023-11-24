@@ -14,3 +14,23 @@ export function signJwt(
     algorithm: "RS256", // this algorithm allow us to use public & private key
   });
 }
+
+export function verifyJwt(token: string) {
+  try {
+    const decoded = jwt.verify(token, publicKey);
+
+    return {
+      valid: true,
+      expired: false,
+      decoded,
+    };
+  } catch (err: any) {
+    log.error(err);
+
+    return {
+      valid: false,
+      expired: err.message === "jwt expired",
+      decoded: null,
+    };
+  }
+}
