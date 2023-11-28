@@ -19,6 +19,8 @@ function routes(app: Express) {
   // Login
   app.post("/api/sessions", validate(sessionSchema), createUserSessionHandler);
 
+  // Get the user's session
+  app.get("/api/sessions", requireUser, getUserSessionsHandler);
 }
 
 export default routes;
